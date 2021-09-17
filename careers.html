@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="logo.png" sizes="8x16" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers</title>
+  <link rel="stylesheet" href="careers.css">
+  <link rel="stylesheet" href="pop.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="logo"><img src="logo.png"></a>
+
+    <input type="checkbox" id="menu-bar">
+    <label for="menu-bar"><i class="fa fa-bars" aria-hidden="true"></i></label>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Services <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          <ul>
+            <li><a href="#">Engineering Management</a></li>
+            <li><a href="#">System & Safety Assurance</a></li>
+            <li><a href="#">Risk Management</a></li>
+            <li><a href="#">Business Intelligence</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Industries <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          <ul>
+            <li><a href="#">Transport</a></li>
+            <li><a href="#">Infrastructure</a></li>
+            <li><a href="#">Utilities</a></li>
+            <li><a href="#">Energy</a></li>
+            <li><a href="#">Technology</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Blog </a></li>
+        <li><a href="careers.html">Careers </a></li>
+        <li><a href="contact_us.html"> <span>Contact Us</span></a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <section class="contact-section">
+    <div class="contact-bg">
+      <h3></h3>
+      <h2>Build your Future at Alpar</h2>
+      <div class="line">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <p class="text">At Alpar, we believe that it is important to keep contributing and advancing 
+        the future technology space. If you are someone who shares the same 
+        passion and values as us, then join our team!</p>
+    </div>
+
+<div class="para">
+    <h3>Career Opportunities</h3>
+    <p>Chase your dreams in an amazing work culture, transform the world with your innovations, and rise to become the best version of yourself!</p>
+</div>
+    <!--<div class="contact-body">
+      <div class="contact-info">
+        <div>
+          <span><i class="fa fa-window-minimize" aria-hidden="true"></i></span>
+          <span>Career Opportunities</span>
+          <span class="text">Chase your dreams in an amazing work culture, transform the world with your innovations, and rise to become the best version of yourself!</span>
+        </div>
+      </div>-->
+
+      <div class="contact-form">
+        <form id="data" method="post" enctype="multipart/form-data">
+          <div>
+            <input type="text" class="form-control" placeholder="Name *" id="name">
+            <input type="email" class="form-control" placeholder="E-mail *" id="email">
+           </div>
+          <div>
+            <input type="number" class="form-control" placeholder="Years of Experience *" id="years">
+            <input type="text" class="form-control" placeholder="LinkedIn Profile URL " id="link">
+          </div>
+          <span style="font-size: 2rem;">Attact CV *</span>
+          <div>
+          <input type="file" name="file" accept="image/jpeg,image/png,application/pdf,image/x-eps" 
+          placeholder="Attach CV" id="cv" class="form-control" style="margin: 0.2rem 0;">
+        </div>
+         <input  type="submit" class="send-btn" value="Submit">
+         <!--onclick="submitToAPI1(event)"-->
+        </form>
+
+        <div>
+          <div class="branchrow">
+            <div class="branchcol">
+              <h3>india</h3>
+              <p>#india abc def rrf kkkkkkkgydgwdgil</p>
+            </div>
+            <div class="branchcol">
+              <h3>uk</h3>
+              <p>#india abc def rrf kkkkkkkgydgwdgil</p>
+            </div>
+            <div class="branchcol">
+              <h3>australia</h3>
+              <p>#india abc def rrf kkkkkkkgydgwdgil</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="pop.js"></script>
+  <script> 
+    // function submitToAPI1(e) {
+     //  e.preventDefault();
+      $("form#data").submit(function(e) {
+    e.preventDefault(); 
+      var URL = "https://ooa50q5si5.execute-api.us-east-2.amazonaws.com/stagecv1/sendcv";
+      if ($("#name").val() == "") {
+        //alert ("Please enter your email id");
+        Confirm.open({
+          title: 'Empty Field!',
+          message: 'Please enter your name',
+        })
+        return;
+      }
+      if ($("#email").val() == "") {
+        //alert ("Please enter your email id");
+        Confirm.open({
+          title: 'Empty Field!',
+          message: 'Please enter your email id',
+        })
+        return;
+      }
+       var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+      if (!reeamil.test($("#email").val())) {
+        // alert ("Please enter valid email address");
+        Confirm.open({
+          title: 'Invalid Email!',
+          message: 'Please enter valid email address',
+        })
+        return;
+      }
+      if ($("#years").val() == "") {
+        Confirm.open({
+          title: 'Empty Field!',
+          message: 'Please enter years of experience',
+        })
+        //alert("please enter you company");
+        return;
+      }
+      
+      //if ($("#cv").val() == "") {
+        //Confirm.open({
+        //  title: 'Empty Field!',
+        //  message: 'Please attach your CV',
+        //})
+        //alert("please enter you company");
+       // return;
+     // }
+
+
+      
+
+
+     /*  var name = $("#name").val();
+      var email = $("#email").val();
+      var years  = $("#years").val();
+      var link = $("#link").val();
+      var fd = new FormData();    
+     fd.append('file', $( '#cv' )[0].files[0] );
+ */
+
+     
+      // var data = {
+      //   name: name,
+      //   email: email,
+      //   years: years,
+      //   link: link,
+      //   cv: fd,
+      // };
+      //var formData = new FormData(this);
+      var formData = new FormData($('#data')[0]);
+      $.ajax({
+        url: "https://ooa50q5si5.execute-api.us-east-2.amazonaws.com/stagecv1/sendcv",
+        type: 'POST',
+        data: formData,
+        cache: false,
+        contentType: 'multipart/form-data',
+        processData: false
+    }).then(
+        Confirm.open({
+          title: 'Message Submitted!',
+          message: 'Thanks for your message. We will be in touch soon.',
+        })
+    );
+    
+//'name: ' + event.name + '\nemail: ' + event.email + '\nyears: ' + event.years + '\nlink: ' + event.link + '\ncv: ' + event.cv
+    /*   $.ajax({
+        type: "POST",
+        url: "https://ooa50q5si5.execute-api.us-east-2.amazonaws.com/stagecv1/sendcv",
+        dataType: "json; form-data",
+        crossDomain: "true",
+        //processData: false,
+        contentType: "application/json; charset=utf-8; multipart/form-data",
+        data: JSON.stringify(data),
+        //data: FormData.stringify(data),
+      }).then(
+        Confirm.open({
+          title: 'Message Submitted!',
+          message: 'Thanks for your message. We will be in touch soon.',
+        })
+      );
+ */
+    }
+    )
+    </script>
+   
+
+
+
+</body>
+
+</html>

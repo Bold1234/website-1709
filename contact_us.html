@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="contact.css">
+  <link rel="icon" href="logo.png" sizes="8x16" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pop.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <a href="index.html" class="logo"><img src="logo.png"></a>
+
+    <input type="checkbox" id="menu-bar">
+    <label for="menu-bar"><i class="fa fa-bars" aria-hidden="true"></i></label>
+    <nav class="navbar">
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#">Services <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          <ul>
+            <li><a href="#">Engineering Management</a></li>
+            <li><a href="#">System & Safety Assurance</a></li>
+            <li><a href="#">Risk Management</a></li>
+            <li><a href="#">Business Intelligence</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Industries <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          <ul>
+            <li><a href="#">Transport</a></li>
+            <li><a href="#">Infrastructure</a></li>
+            <li><a href="#">Utilities</a></li>
+            <li><a href="#">Energy</a></li>
+            <li><a href="#">Technology</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Blog </a></li>
+        <li><a href="careers.html">Careers </a></li>
+        <li><a href="contact_us.html"> <span>Contact Us</span></a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <section class="contact-section">
+    <div class="contact-bg">
+      <h3>Get in Touch with Us</h3>
+      <h2>contact us</h2>
+      <div class="line">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda iste facilis quos impedit fuga
+        nobis modi debitis laboriosam velit reiciendis quisquam alias corporis, maxime enim, optio ab dolorum sequi qui.
+      </p>
+    </div>
+
+
+    <div class="contact-body">
+      <div class="contact-info">
+        <div>
+          <span><i class="fas fa-mobile-alt"></i></span>
+          <span>Sales queries</span>
+          <span class="text">1-2392-23928-2</span>
+        </div>
+        <div>
+          <span><i class="fas fa-envelope-open"></i></span>
+          <span>Career queries</span>
+          <span class="text">mail@company.com</span>
+        </div>
+        <div>
+          <span><i class="fas fa-map-marker-alt"></i></span>
+          <span>Any other info:</span>
+          <span class="text">alparpty@gmail.com</span>
+        </div>
+        <div>
+          <span><i class="fas fa-envelope"></i></span>
+          <span>Official Email</span>
+          <span class="text">parthgupta@hotmail.com</span>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form action="javascript:submitToAPI(e)" method="POST">
+          <div>
+            <input type="text" class="form-control" placeholder="Name" id="name" name="name">
+            <input type="text" class="form-control" placeholder="Company" id="company" name="company">
+          </div>
+          <div>
+            <input type="email" class="form-control" placeholder="E-mail" id="email" name="email">
+            <input type="text" class="form-control" placeholder="Phone" id="phone" name="phone">
+          </div>
+          <textarea rows="5" placeholder="Message" class="form-control" style="height: 9.9rem;" id="message" name="message" ></textarea>
+          <input onclick="submitToAPI(event)" type="submit" class="send-btn" value="send message">
+        </form>
+
+        <div>
+          <div class="branchrow">
+            <div class="branchcol">
+              <h3>india</h3>
+              <p>#india abc def rrf kkkkkkkgydgwdgil</p>
+            </div>
+            <div class="branchcol">
+              <h3>uk</h3>
+              <p>#india abc def rrf kkkkkkkgydgwdgil</p>
+            </div>
+            <div class="branchcol">
+              <h3>australia</h3>
+              <p>#india abc def rrf kkkkkkkgydgwdgil</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="pop.js"></script>
+  <script>
+    function submitToAPI(e) {
+      e.preventDefault();
+      var URL = "https://jjmutmdkl0.execute-api.us-east-2.amazonaws.com/stage2/contact-us-res";
+      if ($("#name").val() == "") {
+        //alert ("Please enter your email id");
+        Confirm.open({
+          title: 'Empty Field!',
+          message: 'Please enter your name',
+        })
+        return;
+      }
+      if ($("#company").val() == "") {
+        Confirm.open({
+          title: 'Empty Field!',
+          message: 'Please enter your company',
+        })
+        //alert("please enter you company");
+        return;
+      }
+      if ($("#email").val() == "") {
+        //alert ("Please enter your email id");
+        Confirm.open({
+          title: 'Empty Field!',
+          message: 'Please enter your email id',
+        })
+        return;
+      }
+
+      var reeamil = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,6})?$/;
+      if (!reeamil.test($("#email").val())) {
+        // alert ("Please enter valid email address");
+        Confirm.open({
+          title: 'Invalid Email!',
+          message: 'Please enter valid email address',
+        })
+        return;
+      }
+      
+
+
+      var name = $("#name").val();
+      var phone = $("#phone").val();
+      var email = $("#email").val();
+      var message = $("#message").val();
+      var company = $("#company").val();
+      var data = {
+        name: name,
+        company: company,
+        email: email,
+        phone: phone,
+        message: message,
+      };
+
+      $.ajax({
+        type: "POST",
+        url: "https://jjmutmdkl0.execute-api.us-east-2.amazonaws.com/stage2/contact-us-res",
+        dataType: "json",
+        crossDomain: "true",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(data),
+      }).then(
+        Confirm.open({
+          title: 'Message Submitted!',
+          message: 'Thanks for your message. We will be in touch soon.',
+        })
+      );
+
+    }
+    </script>
+</body>
+
+</html>
